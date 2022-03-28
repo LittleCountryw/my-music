@@ -1,0 +1,41 @@
+/* baseui/nav-bar/index.wxss */
+.nav-bar {
+  display: flex;
+  align-items: center;
+}
+
+.left, .right {
+  /* 给left和right一个确定宽度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+}
+
+.left-arrow .icon {
+  /* display:block解决图片下方3像素问题 */
+  width: 44rpx;
+  display: block;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.left-arrow {
+  display: none;
+}
+/* CSS相邻兄弟选择器(+) 选择紧连着另一元素后的元素，二者具有相同的父元素。只会选择的一个相邻的匹配元素 */
+.left-slot:empty + .left-arrow {
+  display: block;
+}
+
+.center-title {
+  display: none;
+}
+
+.center-slot:empty + .center-title {
+  display: block;
+}

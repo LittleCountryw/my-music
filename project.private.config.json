@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "music",
+          "pathName": "pages/home-music/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "search",
+          "pathName": "pages/detail-search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "music",
+          "pathName": "pages/music-player/index",
+          "query": "id=1901371647",
+          "scene": null
+        },
+        {
+          "name": "play",
+          "pathName": "pages/music-player/index",
+          "query": "id=1855121311",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

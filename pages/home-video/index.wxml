@@ -1,2 +1,10 @@
 <!--pages/home-video/inedx.wxml-->
-<text>pages/home-video/inedx.wxml</text>
+<!-- id自动item.id -->
+<view class="video">
+  <view wx:for="{{topMVs}}" wx:key="id" class="item">
+    <!--使用data-自定义属性-->
+    <video-item-v1 item="{{item}}" 
+    data-item="{{item}}" 
+    bindtap="handleVideoItemClick"></video-item-v1>
+  </view>
+</view>

@@ -1,1 +1,72 @@
 /* pages/home-music/index.wxss */
+page{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.swiper {
+  border-radius: 10rpx;
+  /* 添加overflow是因为swiper默认不会隐藏超出部分 */
+  overflow: hidden;
+  /* 解决左上角圆角不显示bug */
+  transform: translateY(0);
+}
+.swiper-item {
+  display: flex;
+}
+.swiper-image {
+  width: 100%;
+}
+.play-bar {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 44px;
+  bottom: 0;
+  background-color: #fafafa;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+.play-bar .left,.play-bar .right{
+  display: flex;
+  align-items: center;
+}
+.play-bar .left .album{
+  width: 44px;
+  height: 44px;
+  position: relative;
+  top: -8px;
+  border-radius: 50%;
+}
+.play-bar .left .name{
+  font-size: 14px;
+  margin-left: 10rpx;
+}
+.play-bar .right .icon{
+  width: 30px;
+  height: 30px;
+}
+.play-bar .right .play{
+  width: 25px;
+  height: 25px;
+  margin-right: 10rpx;
+}
+/* ablum动画 */
+@keyframes albumRotate{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.album-anim {
+  animation: albumRotate 16s linear infinite;
+}
+.play-bar-placeholder {
+  height: 44px;
+}

@@ -1,0 +1,35 @@
+/* components/song-item-v1/index.wxss */
+.item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+
+}
+
+.image{
+  width: 120px;
+  height: 120px;
+  border-radius: 16rpx;
+}
+
+.content {
+  margin-left: 16rpx;
+  flex: 1;
+  /* 见博客 */
+}
+
+.content .name {
+  font-size: 32rpx;
+  color: #555;
+}
+
+.content .source {
+  margin-top: 16rpx;
+  font-style: 24rpx;
+  color: #999;
+}
+
+.arrow .icon{
+  width: 50rpx;
+  height: 50rpx;
+}

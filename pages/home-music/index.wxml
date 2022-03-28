@@ -1,2 +1,78 @@
 <!--pages/home-music/index.wxml-->
-<text>pages/home-music/index.wxml</text>
+
+<!-- 搜索框 -->
+<van-search disabled
+            background="#fafafa"
+            shape="round"
+            placeholder="搜索您喜欢的歌曲"
+            bind:click-input="handleSearchClick"/>
+<!-- 轮播图 -->
+<swiper class="swiper" 
+        indicator-dots
+        autoplay
+        circular
+        style="height: {{swiperHeight}}px;"
+        >
+  <block wx:for="{{banners}}" wx:key="bannerId">
+    <swiper-item class="swiper-item">
+    <!-- 1.图片距父级元素底部有3px,这是因为图片时行内元素，为了考虑不同字号字体导致的，处理方法有：
+         父元素加上display:flex
+         父元素字号设置为0
+         将图片设置为块级元素
+         图片设置 vertical-align: bottom;-->
+    <!-- 2.swiper有固定高度,这就导致当切换不同机型或调整图片宽度轮播图不正确显示，
+          处理方法：让轮播图的高度等同于图片高度，图片的高度是根据图片宽度决定的，所以要先获取网络图片的高度，在用行内样式动态决定swiper高度 -->
+      <image src="{{item.pic}}" 
+             class="swiper-image" 
+             mode="widthFix"
+             bindload="handleSwiperImageLoaded"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 推荐歌曲 -->
+<view class="recommand-song" wx:if="{{recommandSongs.length > 0}}">
+  <area-header title="推荐歌曲" bind:click="handleMoreClick"></area-header>
+  <view class="song-list">
+    <block wx:for="{{recommandSongs}}" wx:key="id">
+      <song-item-v1 item="{{item}}" 
+                    bindtap="handleSongItemClick" 
+                    data-index="{{index}}"></song-item-v1>
+    </block>
+  </view>
+</view>
+
+<!-- 歌单 -->
+<song-menu-area title="热门歌单"
+                songMenu="{{hotSongMenu}}"
+                wx:if="{{hotSongMenu.length > 0}}"
+                ></song-menu-area>
+<song-menu-area title="推荐歌单"
+                songMenu="{{recommendSongMenu}}"
+                wx:if="{{recommendSongMenu.length > 0}}"
+                ></song-menu-area>
+<!-- 巅峰榜 -->
+<view class="ranking">
+  <area-header title="巅峰榜" showRight="{{false}}"></area-header>
+  <view class="ranking-list">
+    <block wx:for="{{rankings}}" wx:key="name">
+      <ranking-area-item item="{{item}}"
+                         bindtap="handleRankingItemClick"
+                         data-idx="{{index}}"></ranking-area-item>
+    </block>
+  </view>
+</view>
+<view class="play-bar-placeholder" wx:if="{{currentSong.id}}"></view>
+<view class="play-bar" wx:if="{{currentSong.id}}" bindtap="handlePlayBarClick">
+  <view class="left">
+    <image class="album album-anim" 
+           mode="aspectFill" 
+           src="{{currentSong.al.picUrl}}"
+           style="animation-play-state: {{playAnimState}};"></image>
+    <view class="name">{{currentSong.name}}</view>
+  </view>
+  <view class="right">
+    <image class="icon play" src="/assets/images/music/{{isPlaying ? 'pause' : 'play'}}_icon.png" catchtap="handlePlayBtnClick"></image>
+    <image class="icon playlist" src="/assets/images/music/playlist_icon.png"></image>
+  </view>
+</view>

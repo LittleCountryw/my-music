@@ -1,0 +1,100 @@
+.header {
+  width: 100vw;
+  height: 450rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: -20rpx;
+  color: #fff;
+}
+
+.header .bg-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.header .bg-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0rpx;
+  z-index: -1;
+  background-color: rgba(0,0,0,0.5);
+  /* 毛玻璃效果 */
+  backdrop-filter: blur(5px);
+}
+
+.content {
+  display: flex;
+  margin-top: 60rpx;
+  padding: 0 50rpx;
+}
+
+.content .image {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 16rpx;
+}
+
+.content .info {
+  flex: 1;
+  margin-left: 50rpx;
+  position: relative;
+  height: 220rpx;
+}
+
+.content .anthor {
+  margin-top: 20rpx;
+  display: flex;
+  /* align-items: center; 为啥不是justify-content */
+  vertical-align: middle;
+}
+
+.content .anthor .avatar {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+}
+
+.content .anthor .nickname {
+  font-size: 24rpx;
+  margin-left: 18rpx;
+}
+
+.content .info .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24rpx;
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.operation{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30rpx;
+  padding: 30rpx;
+}
+
+.operation .item {
+  display: flex;
+  align-items: center;
+}
+
+.operation .item .icon {
+  width: 48rpx;
+  margin-right: 10rpx;
+}
+
+.operation .item .text {
+  font-size: 28rpx;
+}
